@@ -1,1 +1,76 @@
-<p>hys works!</p>
+<div class="card mat-card">
+    <div class="card-titles">
+      <h2 class="card-header">Hard & Soft Skills</h2>
+      <div class="btn-edit" *ngIf="isLogged" >
+        <button type="button" class="btn btn-right" data-toggle="modal" data-target="#myModalHys" >
+          <i class="fa fa-plus"></i>
+        </button>      
+      </div>      
+    </div>  
+  
+    <ol class="items-list" *ngFor="let Hys of hys">
+      <li>
+        <div class="aptitude-info">        
+            <p id="text-hys"><span>{{Hys.nombre}}</span></p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" [ngStyle]="{ 'width': Hys.porcentaje + '%' }" [attr.aria-valuenow]="Hys.porcentaje" aria-valuemin="0" aria-valuemax="100">
+              
+                <span style="color: black">{{Hys.porcentaje}}</span>
+  
+              </div>
+            </div>
+          <table class = "table">
+            <tbody>
+              <tr>
+                <td class="btn-edit" *ngIf="isLogged">
+                  <button class="btn btn-right" routerLink="/edithys/{{Hys.id}}">
+                  <i class="bi bi-pencil-fill"></i></button>
+                </td>
+                <td class="btn-edit" *ngIf="isLogged">
+                  <button class="btn btn-right" (click)="delete(Hys.id)">
+                  <i class="bi bi-trash-fill"></i></button> 
+                </td>         
+            
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </li>      
+    </ol>
+    
+  </div>
+
+  <!--Modal NewHyS-->
+  <div class="modal fade" id="myModalHys" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalEduc">Agregar Hard & Soft Skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Hard & Soft Skills:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="porcentaje">Porcentaje:</label>
+              <input type="text" class="form-control" placeholder="Ingrese un numero del 1 al 100" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje" required>
+          </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload()">Cerrar</button>
+              <button type="submit" class="btn btn-primary" onclick="location.reload()">Agregar Hard & Soft Skills</button>
+            </div>         
+          </form>
+        </div>      
+      </div>
+    </div>
+  </div>
+  
+  
+  

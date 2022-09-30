@@ -1,0 +1,41 @@
+
+
+
+<div class="container" *ngIf="person">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="fullname">Nombre completo: </label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" [(ngModel)]="person.fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="imgPerfil">Url Imagen Perfil</label>
+                    <input type="text" class="form-control" id="imgPerfil" name="imgPerfil" [(ngModel)]="person.imgPerfil" required>
+                </div>
+                <div class="form-group">
+                  <label for="posicion">Posicion: </label>
+                  <input type="text" class="form-control" id="posicion" name="posicion" [(ngModel)]="person.posicion" required>
+                </div>
+                <div class="form-group">
+                  <label for="ubicacion">Ubicacion: </label>
+                  <input type="text" class="form-control" id="ubicacion" name="ubicacion" [(ngModel)]="person.ubicacion" required>
+                </div>
+                <div class="form-group">
+                  <label for="contacto">Contacto: </label>
+                  <input type="text" class="form-control" id="contacto" name="contacto" [(ngModel)]="person.contacto" required>
+                </div>
+                <div class="form-group">
+                  <label for="interes">Tengo interes en: </label>
+                  <input type="text" class="form-control" id="interes" name="interes" [(ngModel)]="person.interes" required>
+                </div>
+                <div class="form-group">
+                  <label for="acercade">Acerca de mi: </label>
+                  <input type="text" class="form-control" id="acercade" name="acercade" [(ngModel)]="person.acercade" required>
+                </div>
+                <button class="btn btn-primary">Editar perfil</button>                   
+                
+            </form>
+        </div>
+    </div>
+</div>

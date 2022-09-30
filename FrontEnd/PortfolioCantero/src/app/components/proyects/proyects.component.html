@@ -1,1 +1,86 @@
-<p>proyects works!</p>
+
+<!--Proyectos-->
+<div class="card mat-card">
+    <div class="card-titles">
+        <h2 class="card-header">Proyectos</h2>
+        <div class="btn-edit">
+          <button type="button" class="btn btn-right" data-toggle="modal" data-target="#myModalProyect" *ngIf="isLogged">
+          <i class="fa fa-plus"></i>
+          </button>
+        </div>  
+    </div>
+    <div class="col-lg-12">
+      <table class="table">
+       <tbody>
+        <tr class="items-list" *ngFor="let Proyect of proyect">
+          <td>
+            <h5>Nombre del proyecto: </h5>
+            <p>{{Proyect.nombre}}</p>                    
+          </td>
+          <td>
+            <h5>Descripcion: </h5>
+            <p>{{Proyect.descripcion}}</p>
+          </td>
+          <td>
+            <h5>Fecha de realizacion: </h5>
+            <p>{{Proyect.fecha}}</p>        
+          </td>
+          <td>
+           <h5>Link del proyecto: </h5>
+           <p><a href="{{Proyect.link}}">Visitar</a></p>        
+          </td>
+          <td class="btn-edit" *ngIf="isLogged">
+            <button type="button" class="btn btn-right" routerLink="/editproyect/{{Proyect.id}}">
+            <i class="bi bi-pencil-fill"></i></button>
+          </td>
+          <td class="btn-edit" *ngIf="isLogged">
+            <button class="btn btn-right" (click)="delete(Proyect.id)">
+            <i class="bi bi-trash-fill"></i></button>   
+          </td>           
+        </tr>
+       </tbody>              
+   
+         
+      </table>
+    </div>     
+
+</div> 
+
+<!--Modal NewProyecto-->
+<div class="modal fade" id="myModalProyect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalProyect">Agregar Proyecto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre del proyecto: </label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha de realizacion: </label>
+              <input type="text" class="form-control" id="fecha" name="fecha" [(ngModel)]="fecha" required>
+          </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion: </label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required>
+            </div>
+            <div class="form-group">
+              <label for="link">Link del proyecto: </label>
+              <input type="text" class="form-control" id="link" name="link" [(ngModel)]="link" required>
+          </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload()">Cerrar</button>
+              <button type="submit" class="btn btn-primary" onclick="location.reload()">Agregar Proyecto</button>
+            </div>         
+          </form>
+        </div>      
+      </div>
+    </div>
+</div>

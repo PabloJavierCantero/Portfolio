@@ -1,1 +1,88 @@
-<p>experience works!</p>
+<!--Experiencia-->
+<div class="card mat-card">
+    <div id="experiencie">
+      <div class="card-titles">
+        <h2 class="card-header">Experiencia</h2>
+        <div class="btn-edit">
+          <button type="button" class="btn btn-right" data-toggle="modal" data-target="#myModalExp" *ngIf="isLogged">
+           <i class="fa fa-plus"></i>  
+          </button>       
+        </div>
+      </div>
+  
+      <div class="col-lg-12">
+        <table class="table">
+          <tbody>
+            <tr class="items-list" id="expList" *ngFor="let Experience of expe">
+              <td>
+                <h5>Nombre de la empresa:</h5>
+                <p>{{ Experience.nombre }}</p>
+              </td>
+              <td>
+                <h5>Puesto:</h5>
+                <p>{{ Experience.puesto }}</p>
+              </td>
+              <td>
+                <h5>Descripcion:</h5>
+                <p>{{ Experience.descripcion }}</p>
+              </td>
+              <td>
+                <h5>Periodo:</h5>
+                <p>{{Experience.fecha}}</p>
+              </td>
+              <td class="btn-edit" *ngIf="isLogged">
+  
+                <button type="button" class="btn btn-right" routerLink="/editexp/{{Experience.id}}">
+                 <i class="bi bi-pencil-fill"></i></button>            
+              
+              </td>
+              <td class="btn-edit" *ngIf="isLogged">
+                <button class="btn btn-right" (click)="delete(Experience.id)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+<!--Modal NewExperiencia-->
+<div class="modal fade" id="myModalExp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalExp">Agregar Experiencia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre de la empresa: </label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="puesto">Puesto: </label>
+                <input type="text" class="form-control" id="puesto" name="puesto" [(ngModel)]="puesto" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion: </label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Periodo: </label>
+              <input type="text" class="form-control" id="fecha" name="fecha" [(ngModel)]="fecha" required>
+          </div>          
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload()">Cerrar</button>
+              <button type="submit" class="btn btn-primary" onclick="location.reload()">Agregar Experiencia</button>
+            </div>         
+          </form>
+        </div>      
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,144 @@
-<p>profile works!</p>
+
+<!--First Card-->
+<div class="card mat-card" id="first-card">
+    <div id="profile-background">
+      <img id="info-back-img" class="img-fluid" src="https://cdn.pixabay.com/photo/2019/04/10/11/56/watercolour-4116932_960_720.png">
+    </div>
+    <div id="info" style="padding: 16px" *ngFor="let Person of person">
+      <div id="info-img">
+        <img id="info-user-img" class="profile-image" [src]="Person.imgPerfil"></div>
+        <div class="btn-edit" id="info-actions">
+          <button type="button" class="btn btn-right" data-toggle="modal" data-target="#myModalPerson" *ngIf="isLogged">
+          <i class="fa fa-plus"></i>
+          </button>
+          <button type="button" class="btn btn-right" *ngIf="isLogged" (click)="delete(Person.id)">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+          <button type="button" class="btn btn-right" routerLink="/editprofile/{{Person.id}}" *ngIf="isLogged">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+          
+        </div>
+    </div>
+
+    <div id="info-data" *ngFor="let Person of person">
+      <div>
+          <h1 id="info-name">{{Person.fullname}}</h1>         
+          <div><span id="info-position">{{Person.posicion}}</span></div>
+          <div id="info-contact">
+            <span id="info-ubication">{{Person.ubicacion}}</span>            
+          </div>          
+      </div>       
+      
+    </div>
+
+    <div id="info-actions">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalInteres">
+        Tengo interes en
+      </button>        
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalContact">
+          Contacto
+      </button>       
+    </div>
+    
+</div>
+<!--Acerca de-->
+<div class="card mat-card">
+    <div class="card-titles">
+        <h2 class="card-header">Acerca de mi</h2>      
+    </div>    
+    <div id="about" *ngFor="let Person of person">
+      <p>{{Person.acercade}}</p>
+    </div>
+  </div>
+
+<!--Modal NewPerson-->
+<div class="modal fade" id="myModalPerson" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalPerson">Agregar Perfil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="fullname">Nombre completo: </label>
+                <input type="text" class="form-control" id="fullname" name="fullname" [(ngModel)]="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="imgPerfil">Url Imagen Perfil</label>
+                <input type="text" class="form-control" id="imgPerfil" name="imgPerfil" [(ngModel)]="imgPerfil" required>
+            </div>
+            <div class="form-group">
+              <label for="posicion">Posicion: </label>
+              <input type="text" class="form-control" id="posicion" name="posicion" [(ngModel)]="posicion" required>
+            </div>
+            <div class="form-group">
+              <label for="ubicacion">Ubicacion: </label>
+              <input type="text" class="form-control" id="ubicacion" name="ubicacion" [(ngModel)]="ubicacion" required>
+            </div>
+            <div class="form-group">
+              <label for="contacto">Contacto: </label>
+              <input type="text" class="form-control" id="contacto" name="contacto" [(ngModel)]="contacto" required>
+            </div>
+            <div class="form-group">
+              <label for="interes">Tengo interes en: </label>
+              <input type="text" class="form-control" id="interes" name="interes" [(ngModel)]="interes" required>
+            </div>
+            <div class="form-group">
+              <label for="acercade">Acerca de mi: </label>
+              <input type="text" class="form-control" id="acercade" name="acercade" [(ngModel)]="acercade" required>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload()">Cerrar</button>
+              <button type="submit" class="btn btn-primary" onclick="location.reload()">Agregar Perfil</button>
+            </div>         
+          </form>
+        </div>      
+      </div>
+    </div>
+</div>
+
+<!-- Modal Tengo interes en -->
+<div class="modal fade" id="exampleModalInteres" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tengo interes en: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngFor="let Person of person">
+          {{Person.interes}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Modal Contacto -->
+<div class="modal fade" id="exampleModalContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngFor="let Person of person">
+          {{Person.contacto}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+        </div>
+      </div>
+    </div>
+</div>

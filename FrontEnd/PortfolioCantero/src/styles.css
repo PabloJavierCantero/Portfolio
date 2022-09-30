@@ -1,1 +1,217 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(206, 213, 219);
+}
+
+.mat-card {
+    border-radius: 32px;
+    margin: 10px;
+    padding: 20px;
+}
+.mat-card#first-card {
+    padding: 0;
+}
+.profile-image {
+    border-radius: 50%;
+    width: 152px;
+    height: 152px;
+    margin-top: -110px;
+    z-index: 1;
+}
+#info-back-img{
+    height: 500px;
+    max-width: 100%;
+}
+
+div#info-actions {
+    display: flex;
+    padding-left: 10px;
+}
+div#info-actions button {
+    margin-right: 10px;    
+}
+div#info-contact span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+div#info-contact span a {
+    color: #0a66c2;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+div#info-company {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+div#info-data {
+    display: flex;
+    justify-content: space-between;
+}
+div#info-data h1 {
+    font-size: 1.8rem;
+    display: inline;
+    font-weight: 500;
+    line-height: 1.25;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding-left: 10px;
+}
+div#info-data span{
+    padding-left: 20px;    
+}
+div#info-data ul#info-details {
+    width: 300px;
+    list-style: none;
+    flex-shrink: 0;
+}
+div#info-data ul#info-details li a {
+    color: rgb(70, 130, 243);
+    display: flex;
+    text-decoration: none;    
+}
+div#info-data ul#info-details li a h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    align-self: center;
+    vertical-align: baseline;
+}
+div#info-data ul#info-details li a img {
+    width: 80px;
+    height: 50px;
+    margin: 10px 8px 0px 0px;
+    border-radius: 2px;
+}
+#info-school-img{
+    width: 150px;
+    height: 50px;
+    margin: 10px 8px 0px 0px;
+    border-radius: 2px
+}
+
+
+
+
+
+ul.items-list li div.data-container a div.list-info {
+    margin: 0 10px;
+}
+ul.items-list li div.data-container a div.list-info h3 {
+    color: rgb(31, 46, 247);
+    margin: 10px;
+    font-size: 1.5rem;
+}
+ul.items-list li div.data-container a div.list-info h4, ul.items-list li div.data-container a div.list-info time {
+    color: rgb(172, 175, 179);
+    margin: 5px 5px;
+    font-size: 1rem;
+}
+ul.items-list li div.data-container a div.list-info p {
+    color: rgb(106, 105, 110);
+    margin: 5px 5px;
+
+}
+ol.items-list {
+    list-style: none inside;
+}
+ol.items-list li div.aptitude-info a {
+    text-decoration: none;
+    color: rgb(137, 116, 231);
+}
+ol.items-list li div.aptitude-info a span {
+    color: black;
+}
+div.achivements {
+    display: flex;
+    position: relative;
+    padding: 16px 0 0 12px;
+}
+div.achivements h3 {
+    color: rgb(76, 73, 247);
+    min-width: 64px;
+    text-align: right;
+    line-height: 36px;
+    margin-top: -3px;
+    padding-right: 12px;
+    font-size: 1.2rem;
+}
+div.achivements div.project-title h3 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+div.achivements ul.project-list li {
+    display: inline;
+}
+#about{
+    padding: 10px;
+}
+.card-titles {
+    display: flex;
+    background-color:rgb(254, 255, 255);
+    border-radius: 6px;
+}
+.card-titles h2 {
+    flex: 10;
+    margin: auto;
+}
+.card-titles .btn-edit {
+    flex: 1;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    text-align: end;
+}
+#info-img {
+    display: flex;
+}
+.btn-right {
+    display: flex;
+    align-self: flex-end;
+}
+.bi-button,.bi{
+    color: rgb(133, 149, 240);
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+}
+.bi-button:hover,.bi:hover {
+    background: rgb(240, 236, 236);
+}
+.fa-button,.fa {
+    color: rgb(133, 149, 240);
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+}
+.fa-button:hover,.fa:hover {
+    background: rgb(240, 236, 236);
+}
+div#profile-background {
+    display: flex;
+    z-index: 1;
+}
+div#profile-background img {
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+}
+.data-control{
+    display: flex;
+}
+
+.mr-auto{
+    margin-right: 0!important;
+    margin-left: auto!important;
+}
+#text-resolucion{
+    padding: 10px;
+}
+
+

@@ -1,0 +1,12 @@
+div#btn-habilidad{
+    display: inline;
+}
+
+span{
+    color: rgb(76, 73, 247);
+}
+
+p#text-hys{
+    margin: 10px 0;
+    font-size: 1.3rem;     
+}

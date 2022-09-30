@@ -1,1 +1,89 @@
-<p>education works!</p>
+<div class="card mat-card">  
+    <div id="education">
+      <div class="card-titles">
+        <h2 class="card-header">Educación</h2>
+        <div class="btn-edit">
+          <button type="button" class="btn btn-right" data-toggle="modal" data-target="#myModalEduc" *ngIf="isLogged">
+          <i class="fa fa-plus"></i>
+          </button>
+        </div>      
+      </div> 
+  
+      
+     <div class="col-lg-12">
+      <table class="table">
+       <tbody>
+        <tr class="items-list" id="eduList" *ngFor="let Education of education">
+          <td>
+            <h5>Institucion: </h5>
+            <p>{{Education.nombre}}</p>                    
+          </td>
+          <td>
+            <h5>Titulo: </h5>
+            <p>{{Education.titulo}}</p>
+          </td>
+          <td>
+            <h5>Periodo: </h5>
+            <p>{{Education.fecha}}</p>        
+          </td>
+          <td>
+            <h5>Descripcion: </h5>
+            <p>{{Education.descripcion}}</p>        
+          </td>
+          <td class="btn-edit" *ngIf="isLogged">
+            <button type="button" class="btn btn-right" routerLink="/editedu/{{Education.id}}">
+            <i class="bi bi-pencil-fill"></i></button>
+          </td>
+          <td class="btn-edit" *ngIf="isLogged">
+            <button class="btn btn-right" (click)="delete(Education.id)">
+            <i class="bi bi-trash-fill"></i></button>   
+          </td>           
+        </tr>
+       </tbody>  
+      </table>
+     </div>
+      
+      
+    </div>
+
+</div>
+
+<!--Modal NewEducacion-->
+<div class="modal fade" id="myModalEduc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalEduc">Agregar Educacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+          <div class="form-group">
+              <label for="nombre">Nombre de la institucion: </label>
+              <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+          </div>
+          <div class="form-group">
+              <label for="titulo">Titulo: </label>
+              <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo" required>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Periodo: </label>
+            <input type="text" class="form-control" id="fecha" name="fecha" [(ngModel)]="fecha" required>
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripcion: </label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion">
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload()">Cerrar</button>
+            <button type="submit" class="btn btn-primary" onclick="location.reload()">Agregar Educacion</button>
+          </div>         
+        </form>
+      </div>      
+    </div>
+  </div>
+</div>
+

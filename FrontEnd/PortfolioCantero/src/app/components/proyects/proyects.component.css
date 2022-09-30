@@ -1,0 +1,25 @@
+tr.items-list td h5{
+    display: flex;
+    margin: 10px 0;
+}
+.table h5{
+    color: rgb(76, 73, 247);
+}
+td.btn-edit{
+    flex: 1;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    text-align: end;
+}
+
+.btn-right {
+    display: flex;
+    align-self: flex-end;
+}
+
+tr.items-list {
+    list-style: none inside;
+    flex-grow: 1;
+}

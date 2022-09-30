@@ -1,1 +1,37 @@
-<p>header works!</p>
+<!--Barra de navegacion-->
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img class="img-thumbnail"src="assets/img/AP.png" width="75" height="50" class="d-inline-block align-text-top" alt="argentina programa"> 
+    </a>
+    <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active waves-effect waves-light tooltip-test" title="Visita mi facebook" aria-current="page" href="https://facebook.com">
+            <i class="grey-text fab bi bi-facebook fa-2x px-1"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active waves-effect waves-light tooltip-test" title="Visita mi GitHub" aria-current="page" href="https://github.com/PabloJavierCantero">
+            <i class="grey-text fab bi bi-github fa-2x px-1"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active waves-effect waves-light tooltip-test" title="Enviame un mensaje" aria-current="page" href="https://wa.link/w3mcn5">
+            <i class="grey-text fab bi bi-whatsapp fa-2x px-1"></i>
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button type="button" class="btn btn-outline-primary my-2 my-sm-0 px-1" (click)="login()" *ngIf="!isLogged">Login</button>
+        <button type="button" class="btn btn-outline-primary my-2 my-sm-0 px-1" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesion</button>
+      </form>
+    </div>
+    </div>
+</nav>
+

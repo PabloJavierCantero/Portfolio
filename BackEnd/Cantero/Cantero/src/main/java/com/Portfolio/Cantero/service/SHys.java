@@ -24,6 +24,10 @@ public class SHys {
         return rHys.findById(id);
     }
     
+    public Optional<Hys> getByNombre(String nombre){
+        return rHys.findByNombre(nombre);
+    }
+    
     public void save(Hys hys){
         rHys.save(hys);
     }
@@ -34,6 +38,10 @@ public class SHys {
     
     public boolean existsById(int id){
         return rHys.existsById(id);
+    }
+    
+    public boolean existsByNombre(String nombre){
+        return rHys.existsByNombre(nombre);
     }
     
 }
