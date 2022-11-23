@@ -8,7 +8,7 @@ import { Proyect } from '../model/proyect';
 })
 export class ProyectService {
 
-  URL = 'http://localhost:8080/proyect/';
+  URL = 'https://bkdportfolio.herokuapp.com/proyect/';
 
   constructor(private httpClient: HttpClient) { }
 
